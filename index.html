@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const App = () => {
+          // JSX code with React Fragment
+          const handleAlert = () => {
+            alert("Hello! You clicked the button.");
+          };
+      
+          const inputPlaceholder = "john@doe.net"; // JSX interpolation example
+      
+          return (
+            <>
+              {/* React Fragment wrapping the entire layout */}
+              <div style={styles.container}>
+                {/* Envelope and icon */}
+                <div style={styles.iconContainer}>
+                  <img
+                    src="https://png.pngtree.com/png-clipart/20220605/original/pngtree-mail-envelope-icon-with-one-notification-new-message-png-image_7964141.png"
+                    alt="Subscribe Icon"
+                    style={styles.icon}
+                  />
+                </div>
+      
+                {/* Title */}
+                <h1 style={styles.title}>SUBSCRIBE</h1>
+      
+                {/* Description */}
+                <p style={styles.description}>
+                  Subscribe to our newsletter & stay up to date!
+                </p>
+      
+                {/* Input field and button */}
+                <div style={styles.formContainer}>
+                  <input
+                    type="text"
+                    placeholder={inputPlaceholder}
+                    style={styles.input}
+                  />
+                  <button style={styles.button} onClick={handleAlert}>
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </>
+          );
+        };
+      
+        // Inline styles for the elements
+        const styles = {
+          container: {
+            fontFamily: "Arial, sans-serif",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "1px solid #e0e0e0",
+            borderRadius: "8px",
+            padding: "20px",
+            maxWidth: "400px",
+            margin: "0 auto",
+            backgroundColor: "#fff",
+          },
+          iconContainer: {
+            marginBottom: "15px",
+          },
+          icon: {
+            width: "50px",
+            height: "50px",
+          },
+          title: {
+            fontSize: "24px",
+            fontWeight: "bold",
+            color: "#333",
+            marginBottom: "10px",
+          },
+          description: {
+            fontSize: "16px",
+            color: "#777",
+            marginBottom: "20px",
+          },
+          formContainer: {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          },
+          input: {
+            padding: "10px",
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            marginRight: "10px",
+            fontSize: "14px",
+            width: "220px",
+          },
+          button: {
+            padding: "10px 20px",
+            backgroundColor: "#007bff",
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          },
+          
+        };
+      
+        // Rendering the React component
+        ReactDOM.render(<App />, document.getElementById("root"));
+      </script>
+      
+  </body>
+</html>
+
+//Explanation of Code:
+React Fragment (<> ... </>): The entire component is wrapped in a React Fragment so that we can return multiple elements without adding an unnecessary wrapper element.
+
+JSX Syntax: The structure is built using JSX, and we’ve used JSX interpolation for the email input’s placeholder (inputPlaceholder).
+
+Event Handling: The handleAlert function is triggered when the "Subscribe" button is clicked, showing an alert with the message "Hello! You clicked the button."
+
+Class Handling in JSX: Instead of using className, we’ve opted for inline styles to demonstrate how styles can be applied directly in React.
+//Challenges Faced:
+Image URL: The icon used in the code is linked externally from an icon library (Flaticon). Ensure the link is accessible.
+Inline Styling: You can switch to a CSS file or use className if inline styling gets cumbersome.
+Let me know if you need further clarification or adjustments!
